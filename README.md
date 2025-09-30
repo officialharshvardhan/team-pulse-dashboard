@@ -1,70 +1,137 @@
-# Getting Started with Create React App
+#<h1> 🧑‍🤝‍🧑 Team Pulse Dashboard </h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A <h2>Team Pulse Dashboard</h2> — a productivity monitoring tool built with **React**, **Redux Toolkit**.
+Monitor team member activity, assign tasks, and track progress with role-based views.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📌 Project Goal
 
-### `npm start`
+Build a dashboard that allows:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* **Team Lead**: Monitor team members, assign tasks, filter/sort by status/tasks.
+* **Team Member**: Update personal status, view and manage assigned tasks.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🧑‍🤝‍🧑 User Roles & Features
 
-### `npm run build`
+### 🔄 Role Switching
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Toggle at top-right to switch between **Team Lead** and **Team Member**.
+* Redux state tracks:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```js
+currentRole
+currentUser
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 👨‍💼 Team Lead View
 
-### `npm run eject`
+**Monitor Team Member Status**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* Show all members with status badges: `Working | Break | Meeting | Offline`
+* Summary count example: `2 Working · 1 Meeting · 1 Break`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Assign Tasks**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* Form includes:
+  * Dropdown to select member
+  * Task title input
+  * Due date picker
+* Submitting updates Redux state.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**Filtering & Sorting**
 
-## Learn More
+* Filter members by status
+* Sort members by number of active tasks
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 👷 Team Member View
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Update Status**
 
-### Code Splitting
+* Buttons: `Working | Break | Meeting | Offline`
+* Only one active at a time → updates global state.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**Manage Tasks**
 
-### Analyzing the Bundle Size
+* See list of assigned tasks
+* Each task shows:
+  * Title & due date
+  * Progress bar (0–100%, adjustable in 10% steps)
+  * Mark complete when progress = 100%
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 📂Project Structure
 
-### Advanced Configuration
+```
+/src
+  /components
+    Header.jsx
+    MemberCard.jsx
+    TaskForm.jsx
+    TaskList.jsx
+    StatusSelector.jsx
+  /redux
+    /slices
+      membersSlice.js
+      roleSlice.js
+    store.js
+  /pages
+    Dashboard.jsx
+  App.jsx
+  index.js
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## 🛠️ Tech Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+* **Frontend**: React (with Hooks)
+* **State Management**: Redux Toolkit
+* **Styling**:  plain CSS
+* **Data**: Random dummy data 
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🚀 Setup Instructions
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/yourusername/team-pulse-dashboard.git
+cd team-pulse-dashboard
+```
+
+2. **Install dependencies**
+
+```bash
+npm install
+```
+
+3. **Run the app**
+
+```bash
+npm start
+```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## 📸 Screenshots / Demo
+
+*(Add your screenshots below)*
+
+![Screenshot 1](images/ss1.png)
+![Screenshot 2](images/ss2.png)
+![Screenshot 3](images/ss3.png)
+
+
+## 📦 Deliverables
+
+* GitHub repo with clean commit history
+* Live deployment (Netlify / Vercel)
+* README.md with overview, setup instructions, and screenshots
